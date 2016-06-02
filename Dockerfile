@@ -7,6 +7,7 @@ RUN gem install rails --version "$RAILS_VERSION"
 
 RUN git clone https://github.com/SUSE/Portus.git /srv/portus
 WORKDIR /srv/portus
+RUN git checkout tags/2.0.5
 COPY Gemfile.lock Gemfile.lock
 
 RUN bundle install
