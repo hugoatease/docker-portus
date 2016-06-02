@@ -7,12 +7,11 @@ RUN gem install rails --version "$RAILS_VERSION"
 
 RUN git clone https://github.com/SUSE/Portus.git /srv/portus
 WORKDIR /srv/portus
-RUN git checkout tags/2.0.5
-COPY Gemfile.lock Gemfile.lock
 
 RUN bundle install
 
 ENV RAILS_ENV production
+ENV RACK_ENV production
 
 EXPOSE 3000
 CMD ["rails", "server", "-b", "0.0.0.0"]
